@@ -15,7 +15,7 @@ let userName = prompt("Username: ")
 let capitalizedUserName = userName.toUpperCase()
 
 
-let guess = prompt(`--> WELCOME TO STAGE ${stage} Guess a number between ${min} and ${max} `)
+let guess = prompt(`--> HEY! WELCOME TO STAGE ${stage} Guess a number between ${min} and ${max} `)
 
 let formattedGuess = Number(guess)
 
@@ -24,7 +24,7 @@ function startGame(guess, formattedGuess){
   // --> if the user does not put in a valid number, run the loop below.
 while(isNaN(formattedGuess) || guess === ""){
   console.log("==>WARNING: Your guess has to be a valid number")
-  guess = prompt(`WELCOME TO STAGE ${stage} Guess a number between ${min} and ${max} `)
+  guess = prompt(`HELLO WELCOME TO STAGE ${stage} Guess a number between ${min} and ${max} `)
   formattedGuess = Number(guess)
 }
 
@@ -34,16 +34,16 @@ const correctAnswer = Math.floor(Math.random() * max) + min
 // --> while the player has not guessed the correct answer and has more than 0 tries.
 while(formattedGuess !== correctAnswer && numberOfTries < numberOfChances  ){
   // -->alert the user that their guess is incorrect and have x number of tries left
-  console.log(`==>OOPS: You guessed the number ${formattedGuess}, it is incorrect, try again. You have ${numberOfChances - numberOfTries} ${numberOfChances - numberOfTries > 1 ? "tries" : "try" } left`)
+  console.log(`==>SORRY!: You guessed the number ${formattedGuess}, it is incorrect, try again. You have ${numberOfChances - numberOfTries} ${numberOfChances - numberOfTries > 1 ? "tries" : "try" } left`)
   // -->Increase the numberOftries by 1
   numberOfTries += 1
   //--> Prompt the user to guess again
-  guess = prompt("Guess again: ")
+  guess = prompt("Try Harder: ")
   formattedGuess = Number(guess)
 
     while(guess === "" || isNaN(formattedGuess)){
       console.log("Input a valid number")
-      guess = prompt("guess again: ")
+      guess = prompt("Try Harder: ")
   formattedGuess = Number(guess)
     }
 }
@@ -53,11 +53,11 @@ if( formattedGuess !== correctAnswer && numberOfTries === numberOfChances){
   if(guess === "" || isNaN(formattedGuess)){
     while(guess === "" || isNaN(formattedGuess) ){
       console.log("Input a valid number")
-      guess = prompt("Guess again: ")
+      guess = prompt("Try Harder: ")
   formattedGuess = Number(guess)
     }
   }
-  console.log(`${capitalizedUserName}, sorry you could not find it. the correct guess was: ${correctAnswer}`)
+  console.log(`${capitalizedUserName}, Seems you couldn't get the number. The correct guess was: ${correctAnswer}`)
   let playAgain = confirm(`Would you like to play again? (press "y" to continue, "n" to end) `)
   if(playAgain){
     numberOfTries = 1
@@ -78,7 +78,7 @@ if(formattedGuess === correctAnswer){
   playerPoints += 1
 
   // --> congratulatory message
-  console.log(`Well done ${capitalizedUserName}, you found it in ${numberOfTries} ${numberOfTries > 1 ? "tries" : "try"}.
+  console.log(`OMG ${capitalizedUserName}, you got it in ${numberOfTries} ${numberOfTries > 1 ? "tries" : "try"}.
 You have ${playerPoints} ${playerPoints > 1 ? "points" : "point"}
   `)
 // --> Continue game?
